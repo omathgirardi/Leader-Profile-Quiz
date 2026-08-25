@@ -1,0 +1,237 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "DM Sans", "Manrope", ui-sans-serif, system-ui, sans-serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-petrol: var(--petrol);
+  --color-petrol-deep: var(--petrol-deep);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-champagne: var(--champagne);
+}
+
+:root {
+  --radius: 1rem;
+
+  /* Deep black dominant */
+  --background: oklch(0.065 0.012 245);
+  --foreground: oklch(0.98 0.005 90);
+
+  --card: oklch(0.115 0.018 238);
+  --card-foreground: oklch(0.98 0.005 90);
+
+  --popover: oklch(0.13 0.02 238);
+  --popover-foreground: oklch(0.98 0.005 90);
+
+  /* Champagne CTA */
+  --primary: oklch(0.92 0.09 95);
+  --primary-foreground: oklch(0.1 0.01 240);
+
+  --secondary: oklch(0.18 0.025 220);
+  --secondary-foreground: oklch(0.98 0.005 90);
+
+  --muted: oklch(0.155 0.018 235);
+  --muted-foreground: oklch(0.7 0.014 230);
+
+  --accent: oklch(0.78 0.09 80);
+  --accent-foreground: oklch(0.1 0.01 240);
+
+  --destructive: oklch(0.55 0.2 25);
+  --destructive-foreground: oklch(0.98 0.005 90);
+
+  --border: oklch(0.29 0.025 230 / 52%);
+  --input: oklch(0.2 0.025 232);
+  --ring: oklch(0.78 0.09 80);
+
+  /* Brand */
+  --petrol: oklch(0.25 0.04 220);
+  --petrol-deep: oklch(0.18 0.04 220);
+  --gold: oklch(0.78 0.09 80);
+  --gold-soft: oklch(0.85 0.07 85);
+  --champagne: oklch(0.93 0.08 95);
+
+  --gradient-hero:
+    radial-gradient(ellipse at 18% 0%, oklch(0.19 0.04 225 / 75%) 0%, transparent 45%),
+    linear-gradient(180deg, oklch(0.085 0.018 242), oklch(0.055 0.012 245));
+  --gradient-gold: linear-gradient(135deg, oklch(0.93 0.08 95), oklch(0.82 0.1 85));
+  --pattern-lines:
+    linear-gradient(to bottom, oklch(0.06 0.005 240) 0%, oklch(0.07 0.01 230) 100%),
+    repeating-linear-gradient(
+      115deg,
+      transparent 0,
+      transparent 90px,
+      oklch(1 0 0 / 2.2%) 90px,
+      oklch(1 0 0 / 2.2%) 91px
+    ),
+    repeating-linear-gradient(
+      25deg,
+      transparent 0,
+      transparent 140px,
+      oklch(0.78 0.09 80 / 2.5%) 140px,
+      oklch(0.78 0.09 80 / 2.5%) 141px
+    );
+  --pattern-grid:
+    linear-gradient(180deg, oklch(0.085 0.02 235) 0%, oklch(0.07 0.018 235) 100%),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 47px,
+      oklch(1 0 0 / 3.5%) 47px,
+      oklch(1 0 0 / 3.5%) 48px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0,
+      transparent 47px,
+      oklch(1 0 0 / 3.5%) 47px,
+      oklch(1 0 0 / 3.5%) 48px
+    );
+  --shadow-gold: 0 12px 34px -14px oklch(0.78 0.12 85 / 48%), inset 0 1px 0 oklch(1 0 0 / 42%);
+  --shadow-card: 0 24px 70px -32px oklch(0 0 0 / 88%), inset 0 1px 0 oklch(1 0 0 / 4%);
+  --shadow-float: 0 30px 90px -42px oklch(0 0 0 / 95%), 0 0 0 1px oklch(1 0 0 / 2%);
+}
+
+.dark {
+  --background: oklch(0.06 0.005 240);
+  --foreground: oklch(0.98 0.005 90);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    font-family: var(--font-sans);
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    min-width: 320px;
+    letter-spacing: -0.01em;
+  }
+  ::selection {
+    background: oklch(0.78 0.09 80 / 28%);
+    color: var(--foreground);
+  }
+  :focus-visible {
+    outline: 2px solid color-mix(in oklab, var(--gold) 72%, white);
+    outline-offset: 3px;
+  }
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+}
+
+@layer utilities {
+  .bg-hero {
+    background: var(--gradient-hero);
+  }
+  .bg-gold-gradient {
+    background: var(--gradient-gold);
+  }
+  .bg-lines {
+    background: var(--pattern-lines);
+    background-attachment: fixed;
+  }
+  .bg-grid {
+    background: var(--pattern-grid);
+    background-attachment: fixed;
+  }
+  .bg-quiz-stage {
+    background: var(--pattern-grid);
+    background-attachment: fixed;
+  }
+  @media (max-width: 767px) {
+    .bg-quiz-stage {
+      background-image:
+        linear-gradient(
+          180deg,
+          oklch(0.06 0.005 240 / 88%) 0%,
+          oklch(0.06 0.005 240 / 94%) 55%,
+          oklch(0.06 0.005 240 / 98%) 100%
+        ),
+        url("/quiz-bg-mobile.webp");
+      background-size: cover;
+      background-position: center top;
+      background-attachment: fixed;
+    }
+  }
+  .shadow-gold {
+    box-shadow: var(--shadow-gold);
+  }
+  .shadow-premium {
+    box-shadow: var(--shadow-float);
+  }
+  .surface-premium {
+    background: linear-gradient(145deg, oklch(0.145 0.022 238 / 92%), oklch(0.09 0.016 242 / 88%));
+    border: 1px solid oklch(0.56 0.035 225 / 18%);
+    box-shadow:
+      var(--shadow-float),
+      inset 0 1px 0 oklch(1 0 0 / 5%);
+    backdrop-filter: blur(20px);
+  }
+  .eyebrow {
+    color: var(--gold);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+  .text-gold {
+    color: var(--gold);
+  }
+  .text-champagne {
+    color: var(--champagne);
+  }
+  .border-gold {
+    border-color: var(--gold);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
